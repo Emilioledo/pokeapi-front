@@ -17,7 +17,7 @@ export default function PokemonCard() {
 
     return (
         <div>
-            {loading === false ? (<h4>No information received</h4>) : (
+            {loading === false ? (<h4>Pokemon not found</h4>) : (
                 <div>
                     <img className='center' src={`${pokemon.sprites}`} alt="pokemon"></img>
                     <h3>{pokemon.name}</h3>

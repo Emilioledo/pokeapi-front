@@ -9,7 +9,11 @@ export default function PokemonForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const result = await getPokemon(name)
+        const result = await getPokemon(name) || {
+            name: '',
+            stats: [],
+            sprites: null
+        }
         setPokemon(result)
     }
 
