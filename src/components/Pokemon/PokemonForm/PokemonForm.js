@@ -13,9 +13,7 @@ export default function PokemonForm() {
         setPokemon(result)
     }
 
-    useEffect(() => {
-        console.log(pokemon)
-    }, [pokemon])
+    useEffect(() => { }, [pokemon])
 
     return (
         <form onSubmit={handleSubmit} className='form'>
