@@ -29,7 +29,7 @@ export default function PokemonCard() {
                                 <th><FaArrowUp onClick={sortAscending} />value <FaArrowDown onClick={sortDescending} /> </th>
                             </tr>
                             {pokemon.stats.map(i => (
-                                <tr key={i.index}>
+                                <tr key={i.stat.name}>
                                     <td>{i.stat.name}</td>
                                     <td>{i.effort}</td>
                                     <td>{i.base_stat}</td>
