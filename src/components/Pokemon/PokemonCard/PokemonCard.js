@@ -20,18 +20,19 @@ export default function PokemonCard() {
             {loading === false ? (<h4>No information received</h4>) : (
                 <div>
                     <img className='center' src={`${pokemon.sprites}`} alt="pokemon"></img>
+                    <h3>{pokemon.name}</h3>
                     <table className='table'>
                         <tbody>
                             <tr>
-                                <th><FaArrowUp onClick={sortAscending}/>value <FaArrowDown onClick={sortDescending}/> </th>
-                                <th>effort</th>
                                 <th>name</th>
+                                <th>effort</th>
+                                <th><FaArrowUp onClick={sortAscending} />value <FaArrowDown onClick={sortDescending} /> </th>
                             </tr>
                             {pokemon.stats.map(i => (
                                 <tr key={i.index}>
-                                    <td>{i.base_stat}</td>
-                                    <td>{i.effort}</td>
                                     <td>{i.stat.name}</td>
+                                    <td>{i.effort}</td>
+                                    <td>{i.base_stat}</td>
                                 </tr>
                             ))}
                         </tbody>

@@ -4,12 +4,14 @@ const PokemonContext = createContext()
 
 export default function PokemonProvider({ children }) {
     const [pokemon, setPokemon] = useState({
+        name: '',
         stats: [],
         sprites: null
     })
 
     function sortAscending() {
         setPokemon({
+            name: pokemon.name,
             stats: pokemon.stats.sort((a, b) => a.base_stat - b.base_stat),
             sprites: pokemon.sprites
         })
@@ -17,6 +19,7 @@ export default function PokemonProvider({ children }) {
 
     function sortDescending() {
         setPokemon({
+            name: pokemon.name,
             stats: pokemon.stats.sort((a, b) => b.base_stat - a.base_stat),
             sprites: pokemon.sprites
         })
