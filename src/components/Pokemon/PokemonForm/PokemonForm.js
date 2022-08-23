@@ -1,23 +1,28 @@
-import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react'
 import getPokemon from '../../../services/getPokemon'
+import { PokemonContext } from '../../../context/PokemonContext'
+import './PokemonForm.css'
 
 export default function PokemonForm() {
     const [name, setName] = useState('')
-    const { id } = useParams()
+    const { pokemon, setPokemon } = useContext(PokemonContext)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(id)
-        getPokemon(id)
+        const result = await getPokemon(name)
+        setPokemon(result)
     }
 
+    useEffect(() => {
+        console.log(pokemon)
+    }, [pokemon])
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='form'>
             <div>
                 <input type="text" value={name} placeholder="select your pokemon" onChange={(e) => setName(e.target.value)} required></input>
             </div>
-            <button>Search</button>
+            <button className='btn'>Search</button>
         </form >
     )
 }

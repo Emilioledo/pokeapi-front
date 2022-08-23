@@ -1,16 +1,12 @@
 import axios from 'axios'
-const ENDPOINT = 'https://pokeapi.co/api/v2/pokemon/'
 
-export default async function getPokemon(id) {
-    console.log(id)
+export default async function getPokemon(name) {
     try {
-        const response = await axios.get(ENDPOINT, {
-            params: {
-                pokemon: (id)
-            }
-        })
-        console.log(ENDPOINT)
-        console.log(response.data.results)
+        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        return {
+            stats: response.data.stats,
+            sprites: response.data.sprites.front_default
+        }
     } catch (error) {
         console.log(error)
     }
